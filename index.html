@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -7,13 +8,49 @@
    <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 
-<body ng-app="myApp" ng-controller="MainController">
 
-<ul>
-   <li ng-repeat="tag in swagger.tags">
-      {{ tag.name }} -- {{ tag.description }}
-   </li>
-</ul>
+<body>
+
+<div class="header">
+   My APIs
+</div>
+
+<div class="content" id="content">
+</div>
+
+<div class="taglist" ng-app="myApp" ng-controller="MainController">
+   <ul class="tag">
+      <li class="tag" ng-repeat="tag in swagger.tags">
+         <a class="tag tooltip" href="#" onclick="displayTagContents(this)">{{ tag.name }}
+            <span class="tooltiptext">{{ tag.description }}</span>
+         </a>
+      </li>
+   </ul>
+
+</div>
+
+<div class="footer">
+   Footer
+</div>
+
+
+
+<script>
+   function displayTagContents(element) {
+//      console.log( $(element).text().split(' ')[0] );
+      var rawName = $(element).text().split(' ')[0];
+      var name = rawName.substring(0,rawName.length-1);
+      console.log( pathsByTag[name] );
+
+      var contentPlace = $("#content");
+      contentPlace.empty();
+
+      pathsByTag[name].forEach( function(path) {
+         contentPlace.append("<p>" + path.path + "</p>");
+      });
+   }
+</script>
+
+
 </body>
-
 </html>

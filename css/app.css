@@ -1,18 +1,100 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro');
+
 body {
-    color: #00ff00;
-    background-color: black;
-    font-family: 'Source Sans Pro', sans-serif;
+    margin: 20px 20px 20px 20px !important;
+    background-color: #2d2d2d;
+    color: white;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 16pt;
 }
 
-ul {
+.header {
+    font-size: 3em;
+    line-height: 1.2em;
+    border-bottom: dotted white 2px;
+}
+
+.content {
+    float: right;
+    width: 70%;
+    padding: 20px;
+    overflow-y: visible;
+}
+
+.taglist {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float:left;
+    width:25%;
+    font-size: 18pt;
+    background-color: #3d3d3d;
+}
+
+.footer {
+    height: 30px;
+    border-top: dotted white 2px;
+    text-align: center;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+}
+
+ul .tag {
     list-style: none;
 }
 
-li {
-    margin-bottom: 20px;
+li .tag {
+    color: #00ff00;
+    text-decoration: none;
+    margin-bottom: 16px;
 }
+
+a .tag {
+    color: #00ff00;
+    width: 100%;
+}
+
+a:link .tag {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+a:visited .tag {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+
 
 .code {
     font-family: 'Source Code Pro', monospace;
+}
+
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    font-size: .75em;
+    visibility: hidden;
+    width: 200px;
+    background-color: gray;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    transform: translate(30px,0px);
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
