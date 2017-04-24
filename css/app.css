@@ -74,27 +74,3 @@ a:visited .tag {
 
 
 
-.tooltip {
-    position: relative;
-    display: inline-block;
-}
-
-.tooltip .tooltiptext {
-    font-size: .75em;
-    visibility: hidden;
-    width: 200px;
-    background-color: gray;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    transform: translate(30px,0px);
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-}
