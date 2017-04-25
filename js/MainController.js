@@ -20,17 +20,14 @@ $.getJSON("testDocs/zd24swagger.json", function (data) {
    // go through the tags and for each tag build a list of the paths that has the tag.
    swaggerDoc.tags.forEach(function (tag) {
       tagsList.push(tag.name);
-      console.log("tag: ", tag.name);
 
       var tagPath = {'tag': tag.name};
       var pathList = [];
 
       for (var path in swaggerDoc['paths']) {
          for (var method in swaggerDoc['paths'][path]) {
-            // console.log("Considering method: ", method, ": ", swaggerDoc['paths'][path][method]['tags']);
 
             if (tagInList(tag.name, swaggerDoc['paths'][path][method]['tags']) > -1) {
-               // console.log("I found it!");
                var pathInfo = swaggerDoc['paths'][path][method];
                pathInfo.path = path;
                pathInfo.method = method;
@@ -41,8 +38,6 @@ $.getJSON("testDocs/zd24swagger.json", function (data) {
       tagPath.pathList = pathList;
       pathsByTag.push(tagPath);
    });
-
-   console.log("pathsByTag: ", pathsByTag);
 });
 
 function getPathListByTag(tagName, pathList) {
@@ -50,9 +45,7 @@ function getPathListByTag(tagName, pathList) {
    var i = 0;
 
    pathList.forEach(function (path) {
-      console.log("searching: ", path);
       if (path.tag == tagName) {
-         console.log("I found a match! ", tagName);
          retPath = pathList[i];
       }
       i++;
