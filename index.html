@@ -32,6 +32,9 @@
    <div class="colleft">
       <div class="col1">
          Description of APIs
+         <div id="content">
+            xyz
+         </div>
       </div>
       <div class="col2">
          <ul class="tag">
@@ -57,18 +60,29 @@
       var rawName = $(element).text().split(' ')[0];
       var name = rawName.substring(0, rawName.length - 1);
 
-      var path = getPathListByTag(name, pathsByTag);
+      var paths = getPathListByTag(name, pathsByTag);
 
-      console.log(path);
+      console.log(paths.tag, paths);
 
-      /*
       var contentPlace = $("#content");
       contentPlace.empty();
 
-      pathsByTag[name].forEach(function (path) {
-         contentPlace.append("<p>" + path.path + "</p>");
+      var lastPath;
+      var line = "";
+      paths.pathList.forEach( function(path) {
+         // still working the same path
+         console.log("path: ", path);
+
+         if (path == lastPath) {
+            line = line + ", " + path.method;
+         } else {
+            line = "</p>";
+            contentPlace.append(line);
+            line = "<p>" + path.path + " " + path.method;
+         }
+
+         lastPath = path.path;
       });
-      */
 
    }
 </script>
